@@ -6,4 +6,5 @@ IMDM 290
 
 Course Material 
 
-![Uploading Untitled video - Made with Clipchamp (9).gif…]()
+
+![Untitled video - Made with Clipchamp (9)](https://github.com/user-attachments/assets/958c39c6-4c53-461c-883e-4072c5ed21de)
