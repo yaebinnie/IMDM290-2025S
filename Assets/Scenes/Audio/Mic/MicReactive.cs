@@ -1,14 +1,12 @@
 // UMD IMDM290 
 // Instructor: Myungin Lee
-    // [a <-----------> b]
-    // Lerp : Linearly interpolates between two points. 
-    // https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Vector3.Lerp.html
+// All the same Lerp but using audio
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lerp0 : MonoBehaviour
+public class MicReactive : MonoBehaviour
 {
     GameObject[] spheres;
     static int numSphere = 200; 
@@ -60,8 +58,11 @@ public class Lerp0 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ***Here, we use audio Amplitude, where else do you want to use?
         // Measure Time 
-        time += Time.deltaTime; // Time.deltaTime = The interval in seconds from the last frame to the current one
+        // Time.deltaTime = The interval in seconds from the last frame to the current one
+        // but what if time flows according to the music's amplitude?
+        time += Time.deltaTime * MicInput.Amplitude; 
         // what to update over time?
         for (int i =0; i < numSphere; i++){
             // Lerp : Linearly interpolates between two points.
@@ -69,19 +70,19 @@ public class Lerp0 : MonoBehaviour
             // Vector3.Lerp(startPosition, endPosition, lerpFraction)
             
             // lerpFraction variable defines the point between startPosition and endPosition (0~1)
-            // let it oscillate over time using sin function
             lerpFraction = Mathf.Sin(time) * 0.5f + 0.5f;
-            Debug.Log(lerpFraction);
+
             // Lerp logic. Update position       
             t = i* 2 * Mathf.PI / numSphere;
             spheres[i].transform.position = Vector3.Lerp(startPosition[i], endPosition[i], lerpFraction);
-            // For now, start positions and end positions are fixed. But what if you change it over time?
-            // startPosition[i]; endPosition[i];
-
+            float scale = 1f + MicInput.Amplitude;
+            spheres[i].transform.localScale = new Vector3(scale, 1f, 1f);
+            spheres[i].transform.Rotate(MicInput.Amplitude, 1f, 1f);
+            
             // Color Update over time
             Renderer sphereRenderer = spheres[i].GetComponent<Renderer>();
             float hue = (float)i / numSphere; // Hue cycles through 0 to 1
-            Color color = Color.HSVToRGB(Mathf.Abs(hue * Mathf.Sin(time)), Mathf.Cos(time), 2f + Mathf.Cos(time)); // Full saturation and brightness
+            Color color = Color.HSVToRGB(Mathf.Abs(hue * Mathf.Cos(time)), Mathf.Cos(AudioSpectrum.audioAmp / 10f), 2f + Mathf.Cos(time)); // Full saturation and brightness
             sphereRenderer.material.color = color;
         }
     }

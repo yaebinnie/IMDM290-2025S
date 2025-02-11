@@ -52,7 +52,7 @@ public class Animate : MonoBehaviour
         for (int i =0; i < numSphere; i++){
             // position
             spheres[i].transform.position = initPos[i] 
-                                            + new Vector3(Mathf.Sin(time) * 3f, 1f, 1f) ;
+                                            + new Vector3(Mathf.Sin(time) * 5f, Mathf.Cos(time)* 3f, 1f) ;
             // color
             Renderer sphereRenderer = spheres[i].GetComponent<Renderer>();
             float hue = (float)i / numSphere; // Hue cycles through 0 to 1
