@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 208182542}
   - component: {fileID: 208182541}
   m_Layer: 0
-  m_Name: Heart
+  m_Name: Chocolate Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a35884c1ac6bc46ac0a9f9cd33548c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chocolateMaterial: {fileID: 2100000, guid: 47eae5cd21e21a24fb970498b734b6ba, type: 2}
 --- !u!4 &208182542
 Transform:
   m_ObjectHideFlags: 0
@@ -278,7 +279,7 @@ Transform:
   m_GameObject: {fileID: 208182540}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 9.54}
+  m_LocalPosition: {x: 0, y: 0, z: 3.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -321,7 +322,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6458927, g: 0.76709163, b: 0.9575472, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -371,7 +372,7 @@ Transform:
   m_GameObject: {fileID: 216234734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.9, z: -62.6}
+  m_LocalPosition: {x: 0, y: -0.7, z: -9.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
